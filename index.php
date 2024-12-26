@@ -8,6 +8,7 @@
         $city = test_input($_POST['city']);
 
         $sql = "INSERT INTO user(name,email,phone,city)VALUES('$name','$email','$phone','$city')";
+     
         
         if(mysqli_query($connection,$sql)){
             $results = "One Recode Insert Successfully";
@@ -15,8 +16,8 @@
         else{
             $results = "Something went wrong";
         }
-    } 
-
+    
+    }
     function test_input($data){
         $data = trim($data);
         $data = stripslashes($data);
@@ -66,7 +67,7 @@
                     </div>
 
                     <div class="form-group text-center">
-                        <h5>View Recodes</h5>
+                        <a href="view.php" class="text-dark lead">View Recodes</a>
                     </div>
                     <div class="form-group text-center">
                         <p class="lead">
