@@ -1,5 +1,34 @@
+<?php
+    include 'config.php';
+    $results="";
+    if(isset($_POST['submit'])){
+        $name = test_input($_POST['name']);
+        $email = test_input($_POST['email']);
+        $phone = test_input($_POST['phone']);
+        $city = test_input($_POST['city']);
+
+        $sql = "INSERT INTO user(name,email,phone,city)VALUES('$name','$email','$phone','$city')";
+        
+        if(mysqli_query($connection,$sql)){
+            $results = "One Recode Insert Successfully";
+        }
+        else{
+            $results = "Something went wrong";
+        }
+    } 
+
+    function test_input($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -26,15 +55,26 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Phone</label>
-                        <input type="tel" name="name" class="form-control" placeholder="Phone" required>
+                        <input type="tel" name="phone" class="form-control" placeholder="Phone" required>
                     </div>
                     <div class="form-group">
                         <label for="name">City</label>
                         <input type="text" name="city" class="form-control" placeholder="City" required>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-block m-2" value="Insert">
+                        <input type="submit" name="submit" class="btn btn-primary btn-block m-2" value="Insert">
                     </div>
+
+                    <div class="form-group text-center">
+                        <h5>View Recodes</h5>
+                    </div>
+                    <div class="form-group text-center">
+                        <p class="lead">
+                            <?= $results; ?>
+                        </p>
+                    </div>
+
+
                 </form>
             </div>
         </div>
