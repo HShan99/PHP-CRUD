@@ -13,7 +13,7 @@
 <body class="bg-info">
     <div class="container">
         <div class="row">
-            <div class="col-lg-10 offset-lg-1 mt-3">
+            <div class="col-lg-10 offset-lg-1 mt-5">
                 <table class="table">
                     <thead>
                         <tr>
@@ -47,8 +47,10 @@
                             <td><a class="btn btn-danger" href="delete.php?id=<?=$row['id']; ?>">Delete</a></td>
                         </tr>
                         <?php }}?>
+
                     </tbody>
                 </table>
+                <a href="back.php" class="btn btn-success">Back</a>
             </div>
         </div>
     </div>
